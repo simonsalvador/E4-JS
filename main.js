@@ -3,11 +3,9 @@ const buscarPokemon = async () => {
   const input = document.getElementById("input");
   const pokemon = input.value.toLowerCase();
 
-  if (pokemon === '') {
-  return alert ('Ingrese un número por favor');
-  } else if (pokemon> '905') {
-    return alert ('Ese Pokemon no existe, ingrese un número menor a 906!')
-  }
+ if (pokemon === '') {
+  return alert ('Ingrese un número por favor')};
+  
 
   try {
     const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`);
@@ -31,6 +29,10 @@ const buscarPokemon = async () => {
     div.innerHTML = html;
   } catch (error) {
     console.log(error);
+  }
+  
+  if (!pokemon.id) {
+    return alert ('Ese Pokemon no existe, ingrese un número distinto!')
   }
 };
 
